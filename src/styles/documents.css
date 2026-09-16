@@ -1,0 +1,411 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   A4 document templates — engineering-drawing style: double frame,
+   letterhead, and a technical title block at the foot of every sheet.
+   Used for Quotation, Service Report, Invoice, Billing Statement.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.doc-sheet {
+  width: 100%;
+  max-width: 880px;
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid #ccd2d9;
+  box-shadow: 0 14px 40px rgba(15, 18, 24, 0.12);
+  padding: 30px 30px 24px;
+  animation: slideUp 0.2s ease;
+}
+
+.doc-frame {
+  border: 2px solid #191d23;
+  outline: 1px solid #191d23;
+  outline-offset: 4px;
+  padding: 26px 30px 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 920px;
+  background: #fff;
+}
+
+.doc-frame .doc-body {
+  flex: 1;
+}
+
+/* letterhead */
+.doc-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #191d23;
+}
+.doc-head .dh-left {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.doc-head .dh-logo {
+  width: 52px;
+  height: 52px;
+  flex: none;
+}
+.doc-head .dh-bizname {
+  font: 800 19px/1.05 var(--font-head);
+  text-transform: uppercase;
+  letter-spacing: 0.045em;
+  color: #16191d;
+}
+.doc-head .dh-bizlines {
+  font: 400 9.5px/1.65 var(--font-mono);
+  color: #565f6b;
+  margin-top: 5px;
+  white-space: pre-line;
+}
+.doc-head .dh-right {
+  text-align: right;
+}
+.doc-head .dh-type {
+  font: 800 27px/1 var(--font-head);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--red);
+}
+.doc-head .dh-num {
+  font: 700 14px var(--font-mono);
+  color: #16191d;
+  margin-top: 6px;
+  letter-spacing: 0.03em;
+}
+.doc-head .dh-meta {
+  margin-top: 9px;
+  display: inline-grid;
+  grid-template-columns: auto auto;
+  gap: 2px 12px;
+  font-size: 10.5px;
+}
+.doc-head .dh-meta .k {
+  font: 600 9px var(--font-head);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #8a929d;
+  text-align: left;
+  align-self: center;
+}
+.doc-head .dh-meta .v {
+  font: 500 10.5px var(--font-mono);
+  color: #16191d;
+  text-align: right;
+}
+
+/* bill-to / subject blocks */
+.doc-blocks {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 18px;
+  margin: 18px 0 14px;
+}
+.doc-block .db-label {
+  font: 700 9.5px var(--font-head);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--red);
+  border-bottom: 1px solid #d3d8de;
+  padding-bottom: 4px;
+  margin-bottom: 7px;
+}
+.doc-block .db-name {
+  font: 700 13.5px var(--font-body);
+}
+.doc-block .db-lines {
+  font-size: 11px;
+  color: #565f6b;
+  line-height: 1.6;
+  margin-top: 3px;
+  white-space: pre-line;
+}
+
+/* items table */
+.doc-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 6px;
+  font-size: 11px;
+}
+.doc-table th {
+  font: 700 10px var(--font-head);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #16191d;
+  text-align: left;
+  padding: 7px 8px;
+  border-top: 2px solid #191d23;
+  border-bottom: 1.5px solid #191d23;
+  background: #f4f6f8;
+}
+.doc-table td {
+  padding: 8px;
+  border-bottom: 1px solid #e2e6ea;
+  vertical-align: top;
+  color: #262b31;
+}
+.doc-table .num-cell {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+  white-space: nowrap;
+}
+.doc-table th.num-cell { text-align: right; }
+.doc-table .desc-cell { font-size: 11px; }
+.doc-table tfoot td {
+  border-bottom: none;
+}
+
+/* totals + notes area */
+.doc-summary {
+  display: flex;
+  gap: 26px;
+  margin-top: 14px;
+  align-items: flex-start;
+}
+.doc-summary .ds-notes {
+  flex: 1;
+  min-width: 0;
+}
+.doc-summary .ds-notes .db-label {
+  font: 700 9.5px var(--font-head);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #8a929d;
+  border-bottom: 1px solid #d3d8de;
+  padding-bottom: 4px;
+  margin-bottom: 7px;
+}
+.doc-summary .ds-notes .note-text {
+  font-size: 10.5px;
+  color: #3d444e;
+  line-height: 1.65;
+  white-space: pre-line;
+}
+.doc-totals {
+  width: 272px;
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.doc-totals .trow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #565f6b;
+}
+.doc-totals .trow .tv {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  color: #16191d;
+}
+.doc-totals .trow.grand {
+  border-top: 3px double #16191d;
+  margin-top: 5px;
+  padding-top: 8px;
+  font-weight: 700;
+  color: #16191d;
+}
+.doc-totals .trow.grand .tv {
+  color: var(--red);
+  font-size: 14px;
+  font-weight: 700;
+}
+.doc-totals .trow.balance-warn .tv {
+  color: var(--red-dark);
+  font-weight: 700;
+}
+
+/* signature rows */
+.doc-signs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-top: 34px;
+}
+.doc-sign .sig-line {
+  border-top: 1.5px solid #16191d;
+  padding-top: 5px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.doc-sign .sig-name {
+  font: 700 11px var(--font-body);
+}
+.doc-sign .sig-role {
+  font: 600 9px var(--font-head);
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  color: #8a929d;
+}
+
+/* SR-specific field grid */
+.doc-fieldgrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 18px;
+  margin: 14px 0;
+}
+.doc-field .df-label {
+  font: 700 9px var(--font-head);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #8a929d;
+  margin-bottom: 3px;
+}
+.doc-field .df-value {
+  font-size: 11.5px;
+  color: #16191d;
+  border-bottom: 1px solid #d3d8de;
+  padding-bottom: 4px;
+  min-height: 19px;
+}
+.doc-section .db-label {
+  font: 700 9.5px var(--font-head);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #16191d;
+  border-bottom: 1.5px solid #191d23;
+  padding-bottom: 4px;
+  margin: 14px 0 7px;
+  display: flex;
+  justify-content: space-between;
+}
+.doc-section .note-text {
+  font-size: 10.5px;
+  color: #3d444e;
+  line-height: 1.7;
+  white-space: pre-line;
+}
+
+/* statement entries table */
+.doc-table .credit { color: #178a4e; }
+
+/* engineering title block at the foot */
+.doc-titleblock {
+  margin-top: 22px;
+  border: 1.5px solid #191d23;
+  display: grid;
+  grid-template-columns: 2.1fr 1.3fr 1.1fr 1fr 0.9fr;
+}
+.doc-titleblock .tb-cell {
+  border-right: 1px solid #191d23;
+  padding: 5px 9px 6px;
+  min-width: 0;
+}
+.doc-titleblock .tb-cell:last-child { border-right: none; }
+.doc-titleblock .tb-k {
+  font: 700 8px var(--font-head);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #8a929d;
+}
+.doc-titleblock .tb-v {
+  font: 600 10px var(--font-mono);
+  color: #16191d;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.doc-titleblock .tb-v.red { color: var(--red); }
+
+/* status stamp (screen + print) */
+.doc-stamp {
+  position: absolute;
+  top: 84px;
+  right: 44px;
+  transform: rotate(-9deg);
+  border: 2.5px solid;
+  border-radius: 6px;
+  padding: 4px 12px;
+  font: 800 15px var(--font-head);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  opacity: 0.75;
+  background: rgba(255, 255, 255, 0.65);
+}
+.doc-stamp.st-paid { color: #178a4e; border-color: #178a4e; }
+.doc-stamp.st-overdue { color: #d92b2b; border-color: #d92b2b; }
+.doc-stamp.st-partial { color: #b06e00; border-color: #b06e00; }
+.doc-stamp.st-approved { color: #178a4e; border-color: #178a4e; }
+.doc-stamp.st-unpaid { color: #b06e00; border-color: #b06e00; }
+.doc-stamp.st-draft { color: #6b7480; border-color: #6b7480; }
+
+/* actions bar above the sheet (screen only) */
+.doc-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  max-width: 880px;
+  margin: 0 auto 16px;
+}
+.doc-actions .da-title {
+  font: 700 15px var(--font-head);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* report print area */
+.report-sheet {
+  background: #fff;
+  border: 1px solid #ccd2d9;
+  box-shadow: 0 14px 40px rgba(15, 18, 24, 0.12);
+  padding: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+@media print {
+  .doc-sheet,
+  .report-sheet {
+    max-width: none;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+    animation: none;
+  }
+  .doc-frame {
+    min-height: 0;
+    padding: 0 0 10px;
+  }
+  .doc-stamp {
+    top: 74px;
+    right: 30px;
+  }
+  .doc-signs { page-break-inside: avoid; }
+  .doc-table { page-break-inside: auto; }
+  .doc-table tr { page-break-inside: avoid; }
+}
+
+@media (max-width: 760px) {
+  .doc-sheet { padding: 14px 12px; }
+  .doc-frame { padding: 16px 14px 14px; min-height: 0; }
+  .doc-blocks,
+  .doc-summary,
+  .doc-signs,
+  .doc-fieldgrid {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+  .doc-summary { display: flex; flex-direction: column-reverse; }
+  .doc-totals { width: 100%; }
+  .doc-titleblock { grid-template-columns: 1fr 1fr 1fr; }
+  .doc-titleblock .tb-cell:nth-child(4) { border-right: none; }
+  .doc-titleblock .tb-cell:nth-child(3),
+  .doc-titleblock .tb-cell:nth-child(4) { border-bottom: 1px solid #191d23; }
+  .doc-stamp { top: 70px; right: 18px; font-size: 12px; }
+  .doc-head { flex-direction: column; gap: 12px; }
+  .doc-head .dh-right { text-align: left; }
+}
